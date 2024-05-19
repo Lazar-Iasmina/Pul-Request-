@@ -39,27 +39,9 @@ namespace TheAdventure
             bool Ep = _input.IsEPressed();
             //if(Ep){
             _input.OnMouseClick += (_, coords) => AddBomb(coords.x, coords.y);
-            if (x == 0)
-            {
-                x = 1;
-                _input.OnMouseClick += (_, coords) => dialogueFridge(coords.x, coords.y);
-
-            }
-
-            System.Threading.Thread.Sleep(2000);
-            _input.OnMouseClick += (_, coords) => typewriting();
-            // }
-            // System.Threading.Thread.Sleep(1000);
-            //_input.OnMouseClick+= (_,coords) => dialogueFridge2(coords.x,coords.y);
-            //_input.OnSpa += (_, coords) => AddBomb(coords.x, coords.y);
+            
         }
-        public void typewriting()
-        {
-            PlayMusic2(fundal2);
-
-            System.Threading.Thread.Sleep(3000);
-            PlayMusic(fundal1);
-        }
+       
 
         public void InitializeWorld()
         {
@@ -186,44 +168,10 @@ namespace TheAdventure
             }
 
         }
-        public void dialogueFridge(int x, int y)
-        {
+        
+       
 
-            if (_player.GetPosition().X > 340 && _player.GetPosition().X < 370 && _player.GetPosition().Y > 300 && _player.GetPosition().Y < 330)
-            {
-                SpriteSheet spriteSheet3 = new(_renderer, "Assets/Dialog1.png", 2, 10, 497, 150, (250, 50));
-                _dialog = new(spriteSheet3, 2, (400, 450));
-                _gameObjects.Add(_dialog.Id, _dialog);
-                //System.Threading.Thread.Sleep(3000);
-
-                //System.Threading.Thread.Sleep(3000);
-
-                //dialogueFridge2(x,y);
-                //System.Threading.Thread.Sleep(3000);
-            }
-        }
-        public static void PlayMusic2(string path)
-        {
-            System.Media.SoundPlayer musicPlayer = new System.Media.SoundPlayer();
-            musicPlayer.SoundLocation = path;
-            musicPlayer.Play();
-        }
-
-        public void dialogueFridge2(int x, int y)
-        {
-            if (_player.GetPosition().X > 340 && _player.GetPosition().X < 370 && _player.GetPosition().Y > 300 && _player.GetPosition().Y < 330)
-            {
-                SpriteSheet spriteSheet3 = new(_renderer, "Assets/Dialog2.png", 2, 10, 497, 150, (250, 50));
-                _dialog = new(spriteSheet3, 2, (400, 450));
-                _gameObjects.Add(_dialog.Id, _dialog);
-                //System.Threading.Thread.Sleep(3000);
-
-                //System.Threading.Thread.Sleep(3000);
-
-                //dialogueFridge2(x,y);
-                //System.Threading.Thread.Sleep(3000);
-            }
-        }
+ 
 
         public void RenderFrame()
         {
